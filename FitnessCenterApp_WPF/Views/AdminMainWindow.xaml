@@ -58,7 +58,7 @@
             <Border Grid.Row="1" Background="White" Padding="8">
                 <DockPanel>
                     <Button Content="Добавить" Style="{StaticResource RoundedButton}"
-                            Width="150" Height="36"
+                            Width="145" Height="36"
                             DockPanel.Dock="Left"
                             Click="BtnAdd_Click"/>
                     <TextBox x:Name="TxtSearch" Style="{StaticResource InputBox}"
