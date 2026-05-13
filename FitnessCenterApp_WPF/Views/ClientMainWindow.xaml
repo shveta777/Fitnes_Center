@@ -1,0 +1,75 @@
+<Window x:Class="FitnessCenterApp.Views.ClientMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Клиент — FitnessCenter"
+        Width="1150" Height="720"
+        MinWidth="980" MinHeight="640"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource PageBrush}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="245"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="{StaticResource PrimaryBrush}" Padding="16,20,16,16">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel>
+                    <TextBlock Text="▣  FitnessCenter" FontSize="20" FontWeight="Bold"/>
+                    <TextBlock Text="♙  Клиент" FontSize="15" Margin="0,14,0,0"/>
+                    <TextBlock x:Name="TxtClientName" FontSize="18" FontWeight="Bold"
+                               Margin="28,8,0,28"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Margin="0,18,0,0">
+                    <Button Content="🏠  Главная" Style="{StaticResource MenuButton}" Click="BtnWelcome_Click"/>
+                    <Button Content="📋  Все тренировки" Style="{StaticResource MenuButton}" Click="BtnTrainings_Click"/>
+                    <Button Content="📝  Мои записи" Style="{StaticResource MenuButton}" Click="BtnRecords_Click"/>
+                    <Button Content="🏷  Тарифы" Style="{StaticResource MenuButton}" Click="BtnRates_Click"/>
+                    <Button Content="💳  Мои абонементы" Style="{StaticResource MenuButton}" Click="BtnSubscriptions_Click"/>
+                </StackPanel>
+
+                <Button Grid.Row="3" Content="🚪  Выйти из системы"
+                        Style="{StaticResource MenuButton}" Height="34" Margin="0" Click="BtnLogout_Click"/>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Column="1" Margin="16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="72"/>
+                <RowDefinition Height="54"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="TxtTitle" Text="🏠  Главная"
+                       FontSize="32" FontWeight="Bold"
+                       VerticalAlignment="Center"/>
+
+            <Border Grid.Row="1" Background="White" Padding="8">
+                <DockPanel>
+                    <Button x:Name="BtnMainAction" Content="Действие"
+                            Style="{StaticResource RoundedButton}"
+                            Width="190" Height="40"
+                            DockPanel.Dock="Left"
+                            Click="BtnMainAction_Click"/>
+                    <TextBox x:Name="TxtSearch" Style="{StaticResource InputBox}"
+                             Width="240" Margin="18,0,0,0"
+                             VerticalAlignment="Center"
+                             TextChanged="TxtSearch_TextChanged"/>
+                </DockPanel>
+            </Border>
+
+            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Disabled">
+                <StackPanel x:Name="ContentStack" Margin="0,14,0,0"/>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>

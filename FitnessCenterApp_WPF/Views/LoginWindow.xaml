@@ -1,0 +1,126 @@
+<Window x:Class="FitnessCenterApp.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Авторизация — FitnessCenter"
+        Width="560" Height="520"
+        MinWidth="560" MinHeight="420"
+        MaxWidth="560" MaxHeight="520"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource PageBrush}">
+    <Grid Margin="24">
+        <Border Background="#CFEAF6" Padding="30">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Text="🏋"
+                           FontSize="38"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,8"/>
+
+                <TextBlock Grid.Row="1"
+                           Text="Фитнес-центр"
+                           FontSize="30"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,4"/>
+
+                <TextBlock Grid.Row="2"
+                           Text="Авторизация"
+                           FontSize="36"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,28"/>
+
+                <Grid Grid.Row="3"
+                      Width="430"
+                      HorizontalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                               Grid.Column="0"
+                               Text="Email *:"
+                               FontSize="16"
+                               VerticalAlignment="Center"/>
+
+                    <TextBox x:Name="TxtEmail"
+                             Grid.Row="0"
+                             Grid.Column="1"
+                             Grid.ColumnSpan="2"
+                             Height="34"
+                             FontSize="15"
+                             Padding="8,4"/>
+
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               Text="Пароль *:"
+                               FontSize="16"
+                               VerticalAlignment="Center"/>
+
+                    <Grid Grid.Row="1"
+                          Grid.Column="1">
+                        <PasswordBox x:Name="TxtPassword"
+                                     Height="34"
+                                     FontSize="15"
+                                     Padding="8,4"/>
+                        <TextBox x:Name="TxtPasswordVisible"
+                                 Height="34"
+                                 FontSize="15"
+                                 Padding="8,4"
+                                 Visibility="Collapsed"/>
+                    </Grid>
+
+                    <Button x:Name="BtnShowPassword"
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Content="👁"
+                            Style="{StaticResource RoundedButton}"
+                            Width="40"
+                            Height="34"
+                            Margin="8,0,0,0"
+                            Click="BtnShowPassword_Click"/>
+                </Grid>
+
+                <Grid Grid.Row="4"
+                      Width="340"
+                      HorizontalAlignment="Center"
+                      Margin="0,24,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="160"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0"
+                            Content="Войти"
+                            Style="{StaticResource RoundedButton}"
+                            Width="160"
+                            Height="40"
+                            Click="BtnLogin_Click"/>
+
+                    <Button Grid.Column="2"
+                            Content="Регистрация"
+                            Style="{StaticResource RoundedButton}"
+                            Width="160"
+                            Height="40"
+                            Click="BtnRegister_Click"/>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

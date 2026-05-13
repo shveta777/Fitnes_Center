@@ -1,0 +1,98 @@
+<Window x:Class="FitnessCenterApp.Views.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Регистрация — FitnessCenter"
+        Width="640" Height="700"
+        MinWidth="640" MinHeight="700"
+        MaxWidth="640" MaxHeight="700"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        Background="#CFEAF6">
+    <Grid Margin="28">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Регистрация"
+                   FontSize="30"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,22"/>
+
+        <Grid Grid.Row="1"
+              Width="540"
+              HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="44"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Имя:*" VerticalAlignment="Center" FontSize="15"/>
+            <TextBox x:Name="TxtFirstname" Grid.Row="0" Grid.Column="1" Style="{StaticResource InputBox}"/>
+
+            <TextBlock Grid.Row="1" Text="Фамилия:*" VerticalAlignment="Center" FontSize="15"/>
+            <TextBox x:Name="TxtLastname" Grid.Row="1" Grid.Column="1" Style="{StaticResource InputBox}"/>
+
+            <TextBlock Grid.Row="2" Text="Email:*" VerticalAlignment="Center" FontSize="15"/>
+            <TextBox x:Name="TxtEmail" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputBox}"/>
+
+            <TextBlock Grid.Row="3" Text="Пароль:*" VerticalAlignment="Center" FontSize="15"/>
+            <PasswordBox x:Name="TxtPassword" Grid.Row="3" Grid.Column="1" Style="{StaticResource PasswordBoxStyle}"/>
+
+            <TextBlock Grid.Row="4" Text="Повтор пароля:*" VerticalAlignment="Center" FontSize="15"/>
+            <PasswordBox x:Name="TxtRepeatPassword" Grid.Row="4" Grid.Column="1" Style="{StaticResource PasswordBoxStyle}"/>
+
+            <TextBlock Grid.Row="5" Text="Телефон:*" VerticalAlignment="Center" FontSize="15"/>
+            <TextBox x:Name="TxtPhone"
+                     Grid.Row="5"
+                     Grid.Column="1"
+                     Style="{StaticResource InputBox}"
+                     MaxLength="18"
+                     TextChanged="TxtPhone_TextChanged"/>
+
+            <TextBlock Grid.Row="6" Text="Дата рождения:*" VerticalAlignment="Center" FontSize="15"/>
+            <TextBox x:Name="TxtBirth"
+                     Grid.Row="6"
+                     Grid.Column="1"
+                     Style="{StaticResource InputBox}"
+                     MaxLength="10"
+                     TextChanged="TxtBirth_TextChanged"/>
+
+            <TextBlock Grid.Row="7" Text="Пол:*" VerticalAlignment="Center" FontSize="15"/>
+            <ComboBox x:Name="CbGender" Grid.Row="7" Grid.Column="1" Style="{StaticResource ComboBoxStyle}">
+                <ComboBoxItem Content="Ж"/>
+                <ComboBoxItem Content="М"/>
+            </ComboBox>
+
+            <TextBlock Grid.Row="8" Text="Вес:" VerticalAlignment="Center" FontSize="15"/>
+            <TextBox x:Name="TxtWeight" Grid.Row="8" Grid.Column="1" Style="{StaticResource InputBox}"/>
+
+            <TextBlock Grid.Row="9" Text="Рост:" VerticalAlignment="Center" FontSize="15"/>
+            <TextBox x:Name="TxtHeight" Grid.Row="9" Grid.Column="1" Style="{StaticResource InputBox}"/>
+        </Grid>
+
+        <Button Grid.Row="2"
+                Content="Зарегистрироваться"
+                Style="{StaticResource RoundedButton}"
+                Width="230"
+                Height="44"
+                HorizontalAlignment="Center"
+                Margin="0,22,0,0"
+                Click="BtnRegister_Click"/>
+    </Grid>
+</Window>

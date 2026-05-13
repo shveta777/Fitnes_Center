@@ -1,0 +1,77 @@
+<Window x:Class="FitnessCenterApp.Views.AdminMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Администратор — FitnessCenter"
+        Width="1150" Height="720"
+        MinWidth="980" MinHeight="640"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource PageBrush}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="245"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="{StaticResource PrimaryBrush}" Padding="16,20,16,16">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="78"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0">
+                    <TextBlock Text="▣  FitnessCenter" FontSize="20" FontWeight="Bold"/>
+                    <TextBlock Text="⚙  Администратор" FontSize="15" Margin="0,14,0,0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Margin="0,8,0,8">
+                    <Button Content="👥  Клиенты" Style="{StaticResource MenuButton}" Height="31" Margin="0,0,0,5" Click="BtnClients_Click"/>
+                    <Button Content="🏋  Тренеры" Style="{StaticResource MenuButton}" Height="31" Margin="0,0,0,5" Click="BtnTrainers_Click"/>
+                    <Button Content="📋  Тренировки" Style="{StaticResource MenuButton}" Height="31" Margin="0,0,0,5" Click="BtnTrainings_Click"/>
+                    <Button Content="📅  Расписание" Style="{StaticResource MenuButton}" Height="31" Margin="0,0,0,5" Click="BtnSchedules_Click"/>
+                    <Button Content="🔗  Тренеры в расписании" Style="{StaticResource MenuButton}" Height="31" Margin="0,0,0,5" Click="BtnScheduleTrainers_Click"/>
+                    <Button Content="🕘  Занятость" Style="{StaticResource MenuButton}" Height="31" Margin="0,0,0,5" Click="BtnAvailability_Click"/>
+                    <Button Content="💳  Абонементы" Style="{StaticResource MenuButton}" Height="31" Margin="0,0,0,5" Click="BtnSubscriptions_Click"/>
+                    <Button Content="🏷  Тарифы" Style="{StaticResource MenuButton}" Height="31" Margin="0,0,0,5" Click="BtnRates_Click"/>
+                    <Button Content="📝  Записи" Style="{StaticResource MenuButton}" Height="31" Margin="0,0,0,5" Click="BtnRecords_Click"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                    <Button Content="📊  Отчёт Excel" Style="{StaticResource MenuButton}" Height="32" Margin="0,0,0,6" Click="BtnReport_Click"/>
+                    <Button Content="🚪  Выйти из системы" Style="{StaticResource MenuButton}" Height="32" Margin="0" Click="BtnLogout_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Column="1" Margin="16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="72"/>
+                <RowDefinition Height="54"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="TxtTitle" Text="👥  Клиенты"
+                       FontSize="32" FontWeight="Bold"
+                       VerticalAlignment="Center"/>
+
+            <Border Grid.Row="1" Background="White" Padding="8">
+                <DockPanel>
+                    <Button Content="Добавить" Style="{StaticResource RoundedButton}"
+                            Width="150" Height="36"
+                            DockPanel.Dock="Left"
+                            Click="BtnAdd_Click"/>
+                    <TextBox x:Name="TxtSearch" Style="{StaticResource InputBox}"
+                             Width="240" HorizontalAlignment="Right"
+                             DockPanel.Dock="Right"
+                             TextChanged="TxtSearch_TextChanged"/>
+                </DockPanel>
+            </Border>
+
+            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Disabled">
+                <StackPanel x:Name="ContentStack" Margin="0,14,0,0"/>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>
