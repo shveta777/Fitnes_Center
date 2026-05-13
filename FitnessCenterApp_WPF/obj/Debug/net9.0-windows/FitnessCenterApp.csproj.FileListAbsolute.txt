@@ -160,3 +160,4 @@ C:\Users\ThinkPad\Downloads\FitnessCenterApp_DATE_VALIDATION\FitnessCenterApp_WP
 C:\Users\ThinkPad\Downloads\FitnessCenterApp_DATE_VALIDATION\FitnessCenterApp_WPF\obj\Debug\net9.0-windows\FitnessCenterApp.pdb
 C:\Users\ThinkPad\Downloads\FitnessCenterApp_DATE_VALIDATION\FitnessCenterApp_WPF\obj\Debug\net9.0-windows\FitnessCenterApp.genruntimeconfig.cache
 C:\Users\ThinkPad\Downloads\FitnessCenterApp_DATE_VALIDATION\FitnessCenterApp_WPF\obj\Debug\net9.0-windows\ref\FitnessCenterApp.dll
+C:\Users\ThinkPad\Downloads\FitnessCenterApp_DATE_VALIDATION\FitnessCenterApp_WPF\obj\Debug\net9.0-windows\FitnessCenterApp.sourcelink.json
