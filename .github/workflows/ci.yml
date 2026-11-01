@@ -38,7 +38,7 @@ jobs:
       - name: Run tests
         run: dotnet test FitnessCenterApp.Tests/FitnessCenterApp.Tests.csproj --configuration ${{matrix.configuration}}
 
-   analyze:
+  analyze:
     needs: build
     runs-on: windows-latest
 
