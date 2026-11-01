@@ -97,6 +97,6 @@ public class AuthServiceTests
         var result = authService.Authenticate("client@test.ru", "wrong");
 
         Assert.False(result.Success);
-        Assert.Equal(string.Empty, result.Role);
+Assert.Equal("error", result.Role);
     }
 }
