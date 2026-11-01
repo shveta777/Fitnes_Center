@@ -1,0 +1,47 @@
+name: Code coverage
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Build Release
+        run: dotnet build FitnessCenterApp_WPF/FitnessCenterApp.csproj --configuration Release
+
+  test:
+      needs: build
+      runs-on: windows-latest
+
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+
+        - name: Setup .NET
+          uses: actions/setup-dotnet@v4
+          with:
+            dotnet-version: '9.0.x'
+            
+        - name: Run test
+          run: dotnet test FitnessCenterApp.Tests/FitnessCenterApp.Tests.csproj --configuration Release --collect:"XPlat Code Coverage" --results-directory ./TestResults
+        
+        - name: Report
+          uses: actions/upload-artifact@v4
+          with:
+            name: code-coverage
+            path: TestResults/**/coverage.cobertura.xml
+          
+            
+      
+    
