@@ -1,0 +1,26 @@
+name: Release CI
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: check
+        uses: actions/checkout@v4
+      - name: setup
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - name: build
+        run: dotnet build -c Release
+  test: 
+    runs-on: windows-latest
+    steps:
+      - name: check
+        uses: actions/checkout@v4
+      - name: setup
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - name: build
+        run: dotnet test-c Release
