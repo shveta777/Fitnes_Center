@@ -1,8 +1,7 @@
 name: Release CI
 on: 
-  push:
   schedule:
-    - cron: '35 12 * * 1-5'
+    - cron: '38 12 * * 1-5'
       timezone: "Europe/Moscow"
 jobs:
   build:
@@ -26,4 +25,4 @@ jobs:
         with:
           dotnet-version: '9.0.x'
       - name: build
-        run: dotnet test-c Release
+        run: dotnet test -c Release
