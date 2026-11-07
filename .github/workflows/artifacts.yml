@@ -9,6 +9,7 @@ jobs:
     strategy:
       matrix:
         configuration: [Debug, Release]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -17,12 +18,16 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.0.x'
-      - name: Build
-        run: dotnet build FitnessCenterApp.Tests/FitnessCenterApp.Tests.csproj --configuration &{{matrix.configuration}}
 
-      - name: Artifact
+      - name: Build
+        run: dotnet build FitnessCenterApp_WPF/FitnessCenterApp.csproj --configuration ${{ matrix.configuration }} --output ./output
+
+      - name: Run tests
+        run: dotnet test FitnessCenterApp.Tests/FitnessCenterApp.Tests.csproj --configuration ${{ matrix.configuration }}
+
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: FitnessCenter-${{ matrix.configuration }}
-          path: FitnessCenterApp_WPF/bin/${{ matrix.configuration }}/net9.0-windows/
-          
+          path: ./output
+          if-no-files-found: error
